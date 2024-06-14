@@ -6,6 +6,7 @@ import SocialLogin from "../../../SharePage/SocialLogin/SocialLogin";
 import Authentication from "../../../Hooks/Authentication/Authentication";
 import Swal from "sweetalert2";
 import { Link, useLocation, useNavigate } from "react-router-dom";
+import Loading from "../../../SharePage/Loading/Loading";
 
 const SignUp = () => {
   const [showPassword, setShowPassword] = useState(false);
@@ -66,7 +67,9 @@ const SignUp = () => {
   };
 
   const password = watch("password");
-
+  if(loading){
+    return <Loading/>
+  }
   return (
     <div className="flex items-center justify-center min-h-screen ">
       <div className="bg-white p-8 rounded-lg shadow-lg w-full max-w-md">

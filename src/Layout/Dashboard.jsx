@@ -5,6 +5,7 @@ import { Link, Outlet } from "react-router-dom";
 import Authentication from "../Hooks/Authentication/Authentication";
 import { CgLogIn } from "react-icons/cg";
 import Swal from "sweetalert2";
+import Loading from "../SharePage/Loading/Loading";
 
 const Dashboard = () => {
   const { user, loading, logOut } = Authentication();
@@ -24,6 +25,10 @@ const Dashboard = () => {
         console.log(error?.message);
       });
   };
+
+  if(loading){
+    return <Loading/>
+  }
   return (
     <div className="drawer lg:drawer-open">
       <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />

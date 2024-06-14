@@ -6,6 +6,7 @@ import useAxiosSecure from "../../../Hooks/UseAxiosSecure/UseAxiosSecure";
 import AddTask from "../AddTask/AddTask";
 import Swal from "sweetalert2";
 import UpdateTask from "../UpdateTask/UpdateTask";
+import Loading from "../../../SharePage/Loading/Loading";
 
 function CompletedTask() {
   const [axiosSecure] = useAxiosSecure();
@@ -67,6 +68,10 @@ function CompletedTask() {
 
   // Filter tasks where role === "completed"
   const completedTasks = allTask.filter((task) => task.role === "completed");
+
+  if(isLoading){
+    return <Loading/>
+  }
 
   return (
     <div>

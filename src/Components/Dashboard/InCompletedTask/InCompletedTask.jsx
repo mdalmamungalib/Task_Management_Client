@@ -6,6 +6,7 @@ import useAxiosSecure from "../../../Hooks/UseAxiosSecure/UseAxiosSecure";
 import AddTask from "../AddTask/AddTask";
 import Swal from "sweetalert2";
 import UpdateTask from "../UpdateTask/UpdateTask";
+import Loading from "../../../SharePage/Loading/Loading";
 
 function InCompletedTask() {
   const [axiosSecure] = useAxiosSecure();
@@ -82,6 +83,9 @@ function InCompletedTask() {
 
   // Filter tasks where role is not present (null, undefined, or empty string)
   const tasksWithoutRole = allTask.filter((task) => !task.role);
+  if(isLoading){
+    return <Loading/>
+  }
 
   return (
     <div>

@@ -4,10 +4,12 @@ import useAxiosSecure from "../../../Hooks/UseAxiosSecure/UseAxiosSecure";
 import { useNavigate } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
 import Swal from "sweetalert2";
+import Loading from "../../../SharePage/Loading/Loading";
 
 const UpdateTask = ({ task }) => {
   const [axiosSecure] = useAxiosSecure();
   const navigate = useNavigate();
+
 
   const {
     data: singleTask = {},
@@ -79,6 +81,10 @@ const UpdateTask = ({ task }) => {
       reset();
     }
   };
+
+  if(isLoading){
+    return <Loading/>
+  }
 
   return (
     <dialog id="my_modal_4" className="modal">

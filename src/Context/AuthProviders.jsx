@@ -15,6 +15,7 @@ import {
 } from "firebase/auth";
 import app from "../FireBase/FireBase.Config";
 import axios from "axios";
+import Loading from "../SharePage/Loading/Loading";
 
 export const AuthContext = createContext();
 
@@ -147,7 +148,7 @@ const AuthProviders = ({ children }) => {
 
   return (
     <AuthContext.Provider value={authInfo}>
-      {loading ? <h1>Loading...</h1> : children}
+      {loading ? <Loading/> : children}
     </AuthContext.Provider>
   );
 };

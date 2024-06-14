@@ -10,10 +10,12 @@ import AddTask from "../Components/Dashboard/AddTask/AddTask";
 import CompletedTask from "../Components/Dashboard/CompletedTask/CompletedTask";
 import InCompletedTask from "../Components/Dashboard/InCompletedTask/InCompletedTask";
 
+import NotFoundPage from "../SharePage/NotFoundPage/NotFoundPage"
+
 export const Routes = createBrowserRouter([
   {
     path: "/",
-    errorElement: <></>,
+    errorElement: <NotFoundPage></NotFoundPage>,
     element: <Main />,
     children: [
       {

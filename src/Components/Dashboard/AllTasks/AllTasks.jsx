@@ -6,6 +6,7 @@ import { useQuery } from "@tanstack/react-query";
 import useAxiosSecure from "../../../Hooks/UseAxiosSecure/UseAxiosSecure";
 import Swal from "sweetalert2";
 import UpdateTask from "../UpdateTask/UpdateTask";
+import Loading from "../../../SharePage/Loading/Loading";
 
 function AllTasks() {
   const [axiosSecure] = useAxiosSecure();
@@ -79,6 +80,10 @@ function AllTasks() {
     document.getElementById("my_modal_4").showModal();
   };
   refetch();
+
+  if(isLoading){
+    return <Loading/>
+  }
   return (
     <div>
       <div className="flex justify-between items-center">

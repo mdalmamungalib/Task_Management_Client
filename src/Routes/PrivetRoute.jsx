@@ -1,13 +1,14 @@
 import React from "react";
 import { useLocation, Navigate } from "react-router-dom";
 import Authentication from "../Hooks/Authentication/Authentication";
+import Loading from "../SharePage/Loading/Loading";
 
 const PrivateRoute = ({ children }) => {
   const { user, loading } = Authentication();
   const location = useLocation();
 
   if (loading) {
-    return <h1>Loading...</h1>;
+    return <Loading/>;
   }
 
   if (user && user?.email) {

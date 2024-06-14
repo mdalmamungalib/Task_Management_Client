@@ -4,12 +4,16 @@ import { FaGoogle, FaFacebook, FaGithub } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import Authentication from "../../Hooks/Authentication/Authentication";
+import Loading from "../Loading/Loading";
 
 const SocialLogin = () => {
   const { signInWithGoogle, signInWithFacebook, signInWithGithub, loading } =
     Authentication();
   const navigate = useNavigate();
   const form = "/dashboard/allTasks";
+  if(loading){
+    return <Loading/>
+  }
 
   const handleGoogleLogin = () => {
     signInWithGoogle()
