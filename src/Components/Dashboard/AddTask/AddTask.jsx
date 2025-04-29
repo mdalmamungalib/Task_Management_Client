@@ -25,18 +25,14 @@ const AddTask = () => {
         description,
         dueDate,
       };
-
-      console.log(newData);
       //   Simulate backend request
       const res = await axiosSecure.post("/task", newData);
-      console.log("condition data", res);
       if (res?.data?.acknowledged === true) {
         reset();
         const dialog = document.getElementById("my_modal_3");
         if (dialog) {
           dialog.close();
         }
-        console.log("condition data", newData);
         navigate("/dashboard/allTasks");
       }
     } catch (error) {

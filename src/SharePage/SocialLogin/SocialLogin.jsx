@@ -37,7 +37,6 @@ const SocialLogin = () => {
           })
             .then((res) => res.json())
             .then((data) => {
-              console.log("logingoole", data);
               Swal.fire({
                 position: "center",
                 title: "Login Successful!",
